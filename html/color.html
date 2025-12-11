@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>ContactTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Main Page">
+	<script type="text/javascript" src="js/code.js"></script>
+	<link rel="icon" href="images/ytLogo.png" type="image/png">
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+	}, false);
+	</script>
+</head>
+
+<body class = "contacts-page">
+
+<!-- Top Navigation Bar -->
+<header class="page-header">
+    
+        <div class="header-left">
+            <img src="images/contactTubeTrans.png" alt="ContactTube Logo" class="ct-logo-main">
+        </div>
+
+        <div class="header-center">
+            <div class="search-container">
+                <input type="text" id="headerSearchInput" class="search-bar" placeholder="Search Contacts..." onkeyup="loadContacts()">
+                <button class="search-button" onclick="loadContacts()" aria-label="Search Contacts">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="action-button upload-button" onclick="showAddContactForm();">Add New Contact</button>
+        </div>
+
+        <div class="header-right">
+            <button class="action-button sign-out-button" onclick="doLogout();">Sign Out</button>
+        </div>
+</header>
+
+<!-- Main Container -->
+<div class="main-container">
+    <nav class="sidebar">
+        <ul class="sidebar-nav">
+            <li id="contactsTab" class="active">
+                <a href="#" onclick="showView('contacts')">
+                    <span class="icon">
+                        <img src="images/popular.png" alt="">
+                    </span> 
+                    ContactTube Contacts
+                </a>
+            </li>
+            
+            <li id="aboutTab">
+                <a href="#" onclick="showView('about')">
+                    <span class="icon">
+                        <img src="images/spotlight.png" alt="">
+                    </span> 
+                    About Us
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Contact View Side Bar Option -->
+    <main class="content-area">
+        <div id="contactsView" style="display: block;">
+            <div class="content-banner" 
+                style="background:url('images/popularBanner.png') no-repeat center center;
+                background-size:cover;
+                height:170px;">
+            </div>
+        
+            <div class="content-header">
+                <h1 class="content-title">Your ContactTube Contacts</h1>
+                <button id="mainEditButton" class="edit-button" onclick="toggleEditMode()">Edit / Delete</button>
+            </div>
+        
+            <div class="sort-container">
+                <label for="sortContacts">Sort by:</label>
+                <select id="sortContacts" onchange="sortAndDisplayContacts()">
+                    <option value="az">First Name (A-Z)</option>
+                    <option value="za">First Name (Z-A)</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        
+            <div class="contacts-table-container">
+                <table class="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="pagination-container">
+                <button id="prevPageButton" class="pagination-button" onclick="changePage(-1)">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="nextPageButton" class="pagination-button" onclick="changePage(1)">Next</button>
+            </div>
+
+        </div> 
+        
+        <!-- About Us Side Bar Option -->
+        <div id="aboutView" style="display: none;">
+    
+            <div class="content-banner" 
+                style="background:url('images/popularBanner.png') no-repeat center center;
+                background-size:cover;
+                height:170px;">
+
+                <img class="logo-overlay" src="images/spotlight.png" alt="Overlay Icon">
+            </div>
+        
+            <div class="content-header">
+                <h1 class="content-title">About Us</h1>
+            </div>
+
+            <div class="page-content-card">
+        
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide a simple, secure, and intuitive contact management experience. We aim to combine robust functionality with the classic, user-friendly layouts of the web.</p>
+
+                <h2>Creators</h2>
+                <div class="creators-grid">
+                    <div class="creator-card">
+                        <strong>Dmytro Moshkovskyi</strong><br>
+                        Database + Backend
+                    </div>
+
+                    <div class="creator-card">
+                        <strong>Anahel Bour</strong><br>
+                        Backend + API
+                    </div>
+            
+                    <div class="creator-card">
+                        <strong>Ivanna Socarras</strong><br>
+                        Frontend
+                    </div>
+            
+                    <div class="creator-card">
+                        <strong>Maria Goncharova</strong><br>
+                        Frontend
+                    </div>
+                </div>
+
+                <h2>Disclaimer</h2>
+                <p class="disclaimer-text">*This project, ContactTube, was created for a university class (UCF COP 4331) for 
+                    educational purposes only. It is not affiliated with, sponsored by, or endorsed by YouTube or Google LLC. 
+                    All trademarks, logos, and brand names are the property of their respective owners.*</p>
+        
+                <div class="ucf-logo-container">
+                    <img src="images/ucf.png" alt="UCF Logo">
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Add Contact Button Pressed -->
+<div id="addContactModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 class="modal-title">Add New Contact</h2>
+        <span class="modal-close-button" onclick="hideAddContactForm()">&times;</span>
+        <form id="addContactForm" class="modal-form" onsubmit="return false;">
+            <label for="contactFirstName">First Name</label>
+            <input type="text" id="contactFirstName" placeholder="John">
+
+            <label for="contactLastName">Last Name</label>
+            <input type="text" id="contactLastName" placeholder="Doe">
+
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" placeholder="john.doe@example.com">
+
+            <label for="contactPhone">Phone</label>
+            <input type="tel" id="contactPhone" placeholder="(555) 123-4567" pattern="[0-9]{10}">
+            
+            <span id="addContactResult" class="form-result-message"></span>
+
+            <div class="modal-buttons">
+                <button type="button" class="modal-button cancel" onclick="hideAddContactForm()">Cancel</button>
+                <button type="button" class="modal-button save" onclick="addContact()">Save Contact</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Contact Button Pressed -->
+<div id="editContactModal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 class="modal-title">Edit Contact</h2>
+        <span class="modal-close-button" onclick="hideEditModal()">&times;</span>
+        <form id="editContactForm" class="modal-form" onsubmit="return false;">
+            <input type="hidden" id="editContactId"> <label for="editFirstName">First Name</label>
+            <input type="text" id="editFirstName">
+
+            <label for="editLastName">Last Name</label>
+            <input type="text" id="editLastName">
+
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail">
+
+            <label for="editPhone">Phone</label>
+            <input type="tel" id="editPhone">
+            
+            <span id="editContactResult" class="form-result-message"></span>
+
+            <div class="modal-buttons">
+                <button type="button" class="modal-button cancel" onclick="hideEditModal()">Cancel</button>
+                <button type="button" class="modal-button save" onclick="updateContact()">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
