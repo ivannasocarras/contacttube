@@ -1,0 +1,851 @@
+/* =================================
+   SHARED STYLES FOR LOGIN & SIGN-UP
+   ================================= */
+
+/* Combined body styles for both pages */
+body.login-page,
+body.signup-page {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FFF;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Combined header styles for both pages */
+.top-header,
+.top-header-signup {
+    background: #e7e7e7;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the logo inside either header */
+.top-header .group-logo,
+.top-header-signup .group-logo {
+    height: 50px;
+    width: auto;
+}
+
+/* =================================
+   LOG IN PAGE
+   ================================= */
+
+/* Create account text container */
+.signup-button {
+  font-size: 14px;
+}
+
+/* Signup button style */
+.signup-btn {
+  background: #cc181e;
+  color: white;
+  padding: 6px 12px;
+  text-decoration: none;
+  margin-left: 8px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Main wrapper for login page content */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px; /* Space between left info and login box */
+}
+
+/* Left info section (features, logos) */
+.left-info {
+  flex: 1;
+  max-width: 500px;
+}
+
+.left-info .ct-logo {
+  width: auto !important;
+  height: 50px !important;
+  margin-right: 10px;
+}
+
+/* Feature list in left section */
+.features {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.features img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Login box container */
+.right-info {
+  background: #e7e7e7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 300px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+/* Input fields in login box */
+.right-info input {
+  width: 300px; 
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Sign-in button */
+.sign-in-button {
+  top: 20px;
+  right: 20px;
+  background: #4285f4;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: bold;
+  width: auto;
+  margin-bottom: 10px;
+  transition: background 0.2s ease;
+}
+
+.sign-in-button:hover {
+  background: #2f71da;;
+}
+
+/* =================================
+   SIGN UP PAGE
+   ================================= */
+
+.yt-title {
+  max-width:980px;
+  margin:20px auto 10px;
+  padding:0 10px;
+  font: 24px/1.2 Arial, Helvetica, sans-serif;
+  color:#333;
+}
+
+.signup-grid{
+  max-width:980px;
+  margin:0 auto;
+  padding:0 10px;
+  display:grid;
+  grid-template-columns: 1fr 400px;
+  gap:40px;
+  align-items: start;
+}
+
+/* Left column promos */
+.left-column .promo{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  margin:0 0 28px;
+}
+.left-column .promo img{
+  width:180px;
+  height:auto;
+  background:#e7e7e7;
+  display:block;
+}
+.left-column .promo-text h3{
+  margin:0 0 6px;
+  font-size:18px;
+  font-weight:normal;
+  color:#333; 
+}
+
+.left-column .promo-text p{
+  margin:0;
+  color:#555;
+  line-height:1.45; 
+}
+
+/* Right form card */
+.right-panel {
+    background-color: #e7e7e7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.06);
+    padding: 40px 30px 40px 15px; 
+}
+
+.right-panel h3{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.right-panel label{
+  display:block;
+  margin:10px 0 4px; 
+  font-size:12px;
+  color:#555;
+}
+
+.right-panel label[for="lastName"], .right-panel label[for="confirmPassword"] {
+    font-weight: normal; 
+}
+
+#password-checklist {
+    display: none;
+    padding: 10px 0;
+    font-size: 13px;
+}
+
+#password-checklist p {
+    margin: 5px 0;
+    transition: color 0.3s ease; 
+}
+
+/* Style for when a requirement is NOT met */
+#password-checklist .invalid {
+    color: #dd4b39; /* Red */
+}
+#password-checklist .invalid::before {
+    content: '✖'; /* The "X" symbol */
+    margin-right: 8px;
+}
+
+/* Style for when a requirement is met */
+#password-checklist .valid {
+    color: #0c7a1b; 
+}
+#password-checklist .valid::before {
+    content: '✔'; 
+    margin-right: 8px;
+}
+
+#match-check {
+    display: none;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.validation-message.valid::before {
+    content: '✔';
+    margin-right: 8px;
+}
+
+.validation-message.invalid {
+    color: #dd4b39; /* Red */
+}
+
+.validation-message.valid {
+    color: #0c7a1b; /* Red */
+}
+
+.validation-message.invalid::before {
+    content: '✖';
+    margin-right: 8px;
+}
+
+.right-panel .input-field {
+  width:100%;
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:2px;
+  font-size:14px;
+}
+
+.form-row {
+  display:flex;
+  gap:10px;
+}
+
+.form-row .half {
+  flex:1;
+}
+
+.form-row .third {
+  flex:1; 
+  min-width:0;
+}
+
+.checkbox {
+  font-size:13px;
+  color:#555;
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+}
+
+.full {
+  width:100%;
+  padding:10px 16px;
+}
+
+/* Page brand logo above title */
+.brand-row {
+  max-width: 980px;
+  margin: 18px auto 6px;
+  padding: 0 10px;
+}
+
+.brand-logo {
+  height: 36px;      
+  display: block;
+}
+
+.terms {
+    margin-top: 20px; 
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center; 
+    gap: 10px;          
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0; 
+}
+
+/* New style for the main form submission button */
+.form-submit-button {
+    width: 100%;
+    padding: 10px 16px;
+    margin-top: 15px; 
+    
+    /* Classic Google-style gray button */
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.form-submit-button:hover {
+    background-color: #f8f8f8;
+    border-color: #ccc;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* =================================
+   MAIN CONTACTS PAGE STYLES
+   ================================= */
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu', Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Page Header */
+.page-header {
+    background-color: #eee;
+    padding: 0 20px;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    height: 58px;
+}
+
+/* Far Left */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.ct-logo-main {
+    height: 40px;
+}
+
+/* Center */
+.header-center {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 0 40px 0 90px;
+}
+
+.search-container {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-right: none;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #4285F4;
+}
+
+.search-button {
+    padding: 0 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Far Right */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Base button styles */
+.action-button {
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-left: 10px;
+    white-space: nowrap; 
+}
+.upload-button {
+    background-color: #f8f8f8;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.sign-out-button {
+    background-color: #4285F4;
+    color: white;
+    border: 1px solid #4285F4;
+}
+
+/* Main Content Area */
+.main-container {
+    display: flex;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 220px;
+    background-color: #f8f8f8;
+    padding-top: 20px;
+    border-right: 1px solid #e7e7e7;
+    min-height: calc(100vh - 65px); /* Full height minus header */
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sidebar-nav li.active a {
+    background-color: #99231e; 
+    color: white;             
+    border-left: 4px solid #99231e; 
+}
+
+.sidebar-nav li a .icon {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 18px;
+}
+
+.sidebar-nav .icon img {
+    width: 20px;  
+    height: 20px; 
+    vertical-align: middle; 
+}
+
+.sidebar-nav li a:hover {
+    background-color: #eee;
+}
+
+.sidebar-nav .icon .icon-active {
+    display: none;
+}
+
+/* Show the default icon */
+.sidebar-nav .icon .icon-default {
+    display: inline-block;
+}
+
+/* When the parent <li> is "active"... */
+.sidebar-nav li.active .icon .icon-active {
+    display: inline-block; /* Show the white icon */
+}
+
+.sidebar-nav li.active .icon .icon-default {
+    display: none; /* Hide the default icon */
+}
+
+/* Content Area */
+.content-area {
+    flex-grow: 1;
+    padding: 25px;
+}
+
+.content-banner {
+    background: url('images/popularBanner.jpg') no-repeat center center;
+     background-color: #cc181e;
+    background-size: cover; /* makes it scale to fill the area */
+    height: 170px; /* adjust height if needed */
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-top: none;
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.edit-button {
+    background-color: #cc181e;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+}
+
+.edit-button:hover {
+    background-color: #CC181E;
+}
+
+/* Contacts Table */
+.contacts-table-container {
+    background-color: #ffffff;
+    border: 1px solid #e7e7e7;
+    margin-top: 20px;
+    border-top: 3px solid #ccc;
+}
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contacts-table th, .contacts-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.contacts-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #333;
+}
+
+.contacts-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.contacts-table tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+/* =================================
+  ADD CONTACTS STYLES
+================================= */
+
+.modal-overlay {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-title {
+    margin-top: 0;
+}
+
+.modal-close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-close-button:hover {
+    color: #333;
+}
+
+.modal-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.modal-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-result-message {
+    color: red;
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+.modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-button.cancel {
+    background-color: #eee;
+    margin-right: 10px;
+}
+
+.modal-button.save {
+    background-color: #4285F4;
+    color: white;
+}
+
+/* Styles for the small Edit/Delete icons in the table */
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 8px;
+    color: #555;
+}
+
+.icon-button:hover {
+    color: #000;
+}
+
+.edit-button.active-edit {
+    background-color: #CC181E;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pageInfo {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.pagination-button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.pagination-button:hover {
+    background-color: #eee;
+}
+
+/* Style for when a button is disabled */
+.pagination-button:disabled {
+    cursor: not-allowed;
+    background-color: #e7e7e7;
+    color: #aaa;
+}
+
+.sort-container {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 8px;
+    padding: 15px 0; 
+}
+
+.sort-container label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+}
+
+.sort-container select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 14px; /* Added for consistency */
+}
+
+.content-banner {
+    position: relative; 
+}
+
+.logo-area {
+    position: relative; 
+    margin-left: 30px; 
+    margin-top: 20px;
+    width: 120px; 
+    height: 120px;
+}
+
+.logo-area img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+.logo-background {
+    width: 100%;
+    height: 100%;
+}
+
+.logo-overlay {
+    z-index: 2;
+    width: 100px; 
+    height: 98px; 
+    left: 30px;  
+    top: 30px;   
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.4));
+}
+
+.logo-overlay {
+    position: absolute !important;
+    left: 30px !important;
+    top: 0 !important;
+    z-index: 2 !important;
+}
+
+.page-content-card {
+    background: #fff;
+    padding: 30px 40px; 
+    border: 1px solid #e7e7e7;
+    margin-top: -1px;
+}
+
+/* This styles all the main headers (Our Mission, Creators, Disclaimer) */
+.page-content-card h2 {
+    text-align: center; 
+    font-family: 'Ubuntu', Arial, sans-serif;
+    font-size: 24px; 
+    font-weight: 500; 
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.page-content-card h2:first-of-type {
+    margin-top: 10px;
+}
+
+.page-content-card p {
+    font-size: 16px; 
+    line-height: 1.6;
+    color: #555;
+    max-width: 600px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+.creators-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px 0;
+    margin: 30px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.creator-card {
+    flex-basis: 25%;
+    line-height: 1.5;
+}
+
+.disclaimer-text {
+    text-align: center;   
+    font-size: 16px;     
+    font-style: normal; 
+    color: #555;
+    margin-top: 30px;
+}
+
+/* Styles UCF logo */
+.ucf-logo-container {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.ucf-logo-container img {
+    max-width: 150px;
+    opacity: 0.7;
+}
