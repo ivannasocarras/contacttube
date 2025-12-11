@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Sign in Page.">
+	<title>ContactTube</title>
+	<link rel="icon" href="images/ytLogo.png" type="image/png">
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+<body class = "login-page">
+
+<!-- Top Navigation Bar -->
+<div class = "top-header">
+	<img src="images/groupLogo.png" alt="Group Logo" class="group-logo">
+	<div class="signup-button">
+		New to ContactTube?
+		<a href="makeaccount.html" class="signup-btn"> CREATE AN ACCOUNT </a>
+	</div>
+</div>
+
+<!-- Main Layout -->
+<div class = "login-wrapper">
+
+	<!-- Left Side -->
+	<div class="left-info">
+		<img src="images/contactTubeTrans.png" alt="Contact Tube" class="ct-logo">
+		<p>Sign in now, and use your ContactTube account to:</p>
+		
+		<div class="features">
+			<img src="images/starIcon.png" alt="Star Icon">
+			<div>
+				<p><strong>Keep up with your favorite contacts</strong></p>
+				Save and manage your personal contacts.
+			</div>
+		</div>
+		
+		<div class="features">
+			<img src="images/everywhereIcon.png" alt="Everywhere Icon">
+            <div>
+				<p><strong>Access Everywhere</strong></p>
+				Manage contacts from your laptop, tablet, or phone.
+			</div>
+		</div>
+        
+		<div class="features">
+			<img src="images/shareIcon.png" alt="Share Icon">
+            <div>
+				<p><strong>Stay Organized</strong></p>
+				Keep your contacts safe and in one place.
+			</div>
+		</div>
+	</div>
+
+	<!-- Right Side -->
+    <div class="right-info">
+        <h3>Sign in</h3>
+        <form id="login" onsubmit="return false;">
+            <label for="loginName">Username</label>
+            <input type="text" class="input-field" id="loginName" name="username">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="input-field" id="loginPassword" name="password" required pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}">
+			<span id="loginResult" style="color: red; font-size: 14px;"></span>
+        	<br>
+			<button type="button" class="sign-in-button" id="login-button" onclick="doLogin()">Sign in</button>
+            <br>
+            <a href="#" onclick="event.preventDefault(); showHelpMessage();">Can't access your account?</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
