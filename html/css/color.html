@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>ContactTube</title>
+	<script type="text/javascript" src="js/code.js"></script>
+	<link rel="icon" href="images/ytLogo.png" type="image/png">
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		readCookie();
+	}, false);
+	</script>
+	
+</head>
+
+<body class = "contacts-page">
+<!-- Top Navigation Bar -->
+
+<header class="page-header">
+    
+    <div class="header-left">
+        <img src="images/contactTubeTrans.png" alt="ContactTube Logo" class="ct-logo-main">
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search Contacts...">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <button class="action-button upload-button" onclick="showAddContactForm();">Add New Contact</button>
+        <button class="action-button sign-out-button" onclick="doLogout();">Sign Out</button>
+    </div>
+
+</header>
+
+<!-- Main COntainer -->
+<div class="main-container">
+<nav class="sidebar">
+            <ul class="sidebar-nav">
+                <li class="active">
+                    <a href="#">
+                       <span class="icon"><i class="fas fa-users"></i></span> Contacts
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       <span class="icon"><i class="fas fa-info-circle"></i></span> About Us
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <div class="content-banner" 
+     			style="background:url('images/myBanner.jpg') no-repeat center center;
+            	background-size:cover;
+            	height:170px;">
+			</div>
+
+            
+            <div class="content-header">
+                <h1 class="content-title">Your Contacts</h1>
+                <button class="edit-button">Edit / Delete</button>
+            </div>
+            
+            <div class="contacts-table-container">
+                <table class="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+</div>
+</body>
+</html>
